@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Disciplinas - Acadêmico - IFPB</title>
+</head>
+<style>
+    html {
+        
+        background: #f5f7f8;
+        font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        padding: 20px 0;
+      
+    }
+
+    #container {
+        display: flex;
+        width: 90%;
+        max-width: 1240px;
+        margin: 0 auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 200px;
+        align-items: center;
+        justify-content: center;
+      
+
+
+    }
+
+
+    #container>.item {
+        width: 200px;
+        height: 200px;
+        
+        border-style: solid;
+        border-bottom: #f5f7f8;
+        border-color: rgb(196, 161, 161);
+        margin: 20px;
+        min-height: 100%;
+        background: white;
+        text-decoration: none;
+        color: #444;
+
+    }
+</style>
+
+<body>
+    <section id="container">
+        <div class="item" id="alunoForm">
+            <p> Aluno: </p>
+            Nome:<input id="nome"><br>
+            Idade:<input id="idade" type="number"><br>
+            Matrícula:<input id="matricula"><br>
+
+            <button onclick="alunoControlador.inserir()">Cadastrar</button>
+
+            <ol id="listaAlunos"></ol>
+        </div>
+
+        <div class="item" id="disciplinaForm">
+            <p> Disciplina </p>
+            Codigo:<input id="codigo"><br>
+            Nome:<input id="nomeDisciplina"><br>
+
+            <button onclick="disciplinaControlador.inserir()">Cadastrar Disciplina</button>
+
+            <ol id="listaDisciplinas"></ol>
+        </div>
+
+        <div class="item" id="inserirAlunoDisciplina">
+            
+            Matricula Inserir:<input id="matriculaAlunoInserir"><br>
+            Codigo Disciplina:<input id="CodigoDisciplinaInserir"><br>
+            <button onclick="disciplinaControlador.inserirAlunoNaDisciplina()"> Inserir Aluno</button>
+        </div> 
+    </section>
+
+    <script src="modelo/disciplina.js"></script>
+    <script src="repositorio/disciplina_repositorio.js"></script>
+    <script src="servico/disciplina_service.js"></script>
+    <script src="controlador/disciplina_controlador.js"></script>
+
+    <script src="modelo/aluno.js"></script>
+    <script src="repositorio/aluno_repositorio.js"></script>
+    <script src="servico/aluno_service.js"></script>
+    <script src="controlador/aluno_controlador.js"></script>
+
+    <script src="disciplina.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
