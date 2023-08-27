@@ -27,8 +27,21 @@ class DisciplinaControlador {
         elementoDestino.appendChild(disciplinaElemento);
     }
     listar(){
-        return this.servico.listar();
+        return this.servico.listar();}
+
+    listarDisciplinas(){
+       const listaAlunosMatriculados = document.querySelector("#listaAlunosMatriculados");
+        this.servico.listar().forEach(disciplina => {
+            const disciplinaElemento = document.createElement("li");
+            disciplinaElemento.textContent = `Disciplina: ${disciplina.nome} \n Alunos: `;
+             disciplina.listar().forEach(aluno => disciplinaElemento.textContent += ` \n ${aluno.nome} `)
+            listaAlunosMatriculados.appendChild(disciplinaElemento);
+        });
+        
+      
+       
     }
+    
 
     pesquisaPorCodigo(codigo){
         return this.servico.pesquisaPorCodigo(codigo);
