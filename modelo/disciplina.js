@@ -25,8 +25,8 @@ class Disciplina{
         this.alunos.push(aluno);
     }
 
-    remover(matricula){
-       const indxAlunoARemover = this.alunos.findIndex(aluno => aluno.matricula === matricula);
+    remover(aluno){
+       const indxAlunoARemover = this.alunos.indexOf(aluno);
         if(indxAlunoARemover > -1){
             this.alunos.splice(indxAlunoARemover, 1);
         }

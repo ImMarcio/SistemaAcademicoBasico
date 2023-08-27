@@ -109,6 +109,23 @@
             <button class="buttons" onclick="disciplinaControlador.listarDisciplinas()">Mostrar alunos </button>
             <ol id="listaAlunosMatriculados"></ol>
         </div> 
+
+        <div class="item" id="removerAlunoNaDisciplina">
+            <h3>Remover aluno</h3>
+            Matricula Remover:<input class="inputs"  id="matriculaAlunoremover"><br>
+            Codigo Disciplina:<input class="inputs"  id="codigoDisciplinaremover"><br>
+            <button  class="buttons" onclick="disciplinaControlador.removerAlunoNaDisciplina()"> Remover Aluno</button><br>
+            
+            
+        </div> 
+
+        <div class="item" id="removerDisciplina">
+            <h3>Remover Discplina</h3>
+            Codigo Disciplina:<input class="inputs"  id="disciplinaCodigoRemover"><br>
+            <button  class="buttons" onclick="disciplinaControlador.remover()"> Remover Disciplina</button><br>
+            
+            
+        </div> 
     </section>
 
     <script src="modelo/disciplina.js"></script>

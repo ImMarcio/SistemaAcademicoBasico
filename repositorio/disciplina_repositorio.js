@@ -9,7 +9,7 @@ class DisciplinaRepositorio {
     remover(codigo) {
         const idxDisciplinaRemover = this.disciplinas.findIndex(disciplina => disciplina.codigo === codigo);
         if (idxDisciplinaRemover > -1) {
-            this.idxDisciplinaRemover.splice(idxDisciplinaRemover, 1);
+            this.disciplinas.splice(idxDisciplinaRemover, 1);
         }
     }
     listar() {
@@ -23,14 +23,13 @@ class DisciplinaRepositorio {
 
 
     }
-    removerAlunoNaDisciplina(matricula, codigo) {
-        const disciplinaDoAluno = this.disciplinas.findIndex(disciplina => disciplina.codigo === codigo);
-        if (disciplinaDoAluno > -1) {
-            const alunoRemover = this.disciplinaDoAluno.findIndex(aluno => aluno.matricula === matricula);
-            if (alunoRemover > -1) {
-                this.disciplinaDoAluno.splice(alunoRemover, 1);
-            }
-        }
+    removerAlunoNaDisciplina(aluno, codigo) {
+        const disciplinaRemover = this.disciplinas.find(disciplina => disciplina.codigo === codigo);
+        if(disciplinaRemover){
+        disciplinaRemover.remover(aluno);}
+
+        
     }
+   
 
 }

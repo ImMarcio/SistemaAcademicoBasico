@@ -13,6 +13,10 @@ class DisciplinaControlador {
         }
 
     }
+    remover(){
+        const codigoElemento = document.querySelector('#disciplinaCodigoRemover');
+        this.servico.remover(codigoElemento.value);
+    }
 
     inserirAlunoNaDisciplina(){
         const matriculaAluno = document.querySelector('#matriculaAlunoInserir');
@@ -26,6 +30,15 @@ class DisciplinaControlador {
         disciplinaElemento.textContent = `Código: ${disciplina.codigo} - Nome: ${disciplina.nome}`;
         elementoDestino.appendChild(disciplinaElemento);
     }
+
+    removerAlunoNaDisciplina(){
+        const matriculaRemoverElemento = document.querySelector("#matriculaAlunoremover");
+        const codigoDisciplinaElemento = document.querySelector("#codigoDisciplinaremover");
+        const aluno =  alunoControlador.pesquisarPorMatricula(matriculaRemoverElemento.value);
+        this.servico.removerAlunoNaDisciplina(aluno, codigoDisciplinaElemento.value);
+
+    }
+
     listar(){
         return this.servico.listar();}
 

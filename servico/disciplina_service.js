@@ -12,18 +12,37 @@ class DisciplinaService {
         return disciplinaNova;
     }
 
-    inserirAlunoNaDisciplina(aluno, codigo) {
-    
-        this.repositorio.inserirAlunoNaDisciplina(aluno, codigo);
-
-    }
-
     remover(codigo) {
         this.repositorio.remover(codigo);
     }
 
+    inserirAlunoNaDisciplina(aluno, codigo) {
+        const alunoPesquisado = this.pesquisaAlunoNaDisciplina(aluno.matricula);
+        if (alunoPesquisado) {
+            throw new Error("Aluno já está cadastrado nessa disciplina!")
+        }  
+        this.repositorio.inserirAlunoNaDisciplina(aluno, codigo);
+
+    }
+
+    removerAlunoNaDisciplina(aluno, codigo) {
+
+        this.repositorio.removerAlunoNaDisciplina(aluno, codigo);
+       
+
+    }
+
+
+
     pesquisaPorCodigo(codigo) {
         return this.repositorio.listar().find(disciplina => disciplina.codigo === codigo);
+    }
+    pesquisaAlunoNaDisciplina(matricula) {
+        const disciplinas = this.repositorio.listar();
+
+        const aluno = disciplinas.forEach(disciplina => disciplina.listar().find(alunoDisciplina => alunoDisciplina.matricula === matricula));
+        return aluno;
+
     }
 
     listar() {
