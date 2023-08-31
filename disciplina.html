@@ -9,12 +9,13 @@
 <style>
     html {
         
-        background: #f5f7f8;
+        background: #000000;
         font-family: 'Roboto', sans-serif;
         -webkit-font-smoothing: antialiased;
         padding: 20px 0;
-      
+        
     }
+    
 
     #container {
         display: flex;
@@ -23,21 +24,37 @@
         margin: 0 auto;
         flex-direction: row;
         flex-wrap: wrap;
+        margin-top: 200px;
         align-items: center;
         justify-content: center;
-      
+        background: #000000;
 
 
     }
 
-
+    #container:nth-child(1) {
+        color: rgb(86, 121, 235);
+    }
+    #container:nth-child(2) {
+        align-items: center;
+    }
+    .item{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        align-items: center;
+       
+        
+    }
     #container>.item {
         width: 200px;
         height: 200px;
-        
         border-style: solid;
         border-bottom: #f5f7f8;
-        border-color: rgb(196, 161, 161);
+        border-radius: 0px 25px 25px 0px;
+        border-color: rgb(86, 121, 235);
         margin: 20px;
         min-height: 100%;
         background: white;
@@ -45,6 +62,27 @@
         color: #444;
 
     }
+    #container>.item:hover {
+      box-shadow: 10px 5px 5px rgb(70, 70, 70) ;
+
+    }
+    #container>.item > .buttons{
+        border-radius: 25px;
+        color: aqua;
+        font-size: 15px;
+        width: 100px;
+        height: 50px;
+
+    }
+    #container>.item > .inputs{
+        border-radius: 15px 0px 15px 0px;
+
+    }
+    button{
+        color: black;
+        font-size: 25px;
+    }
+
 </style>
 
 <body>
@@ -55,10 +93,20 @@
             Codigo:<input id="codigo"><br>
             Nome:<input id="nomeDisciplina"><br>
 
-            <button onclick="disciplinaControlador.inserir()">Cadastrar Disciplina</button>
+            <button class="buttons" onclick="disciplinaControlador.inserir()">Cadastrar Disciplina</button>
 
             <ol id="listaDisciplinas"></ol>
         </div>
+
+        <div class="item" id="removerDisciplina">
+            <h3>Remover Discplina</h3>
+            Codigo Disciplina:<input class="inputs"  id="disciplinaCodigoRemover"><br>
+            <button  class="buttons" onclick="disciplinaControlador.remover()"> Remover Disciplina</button><br>
+            
+            
+        </div> 
+
+        <ol id="listaDisciplinas"></ol>
 
         
     </section>

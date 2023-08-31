@@ -27,7 +27,7 @@ class DisciplinaControlador {
     }
     inserirDisciplinaNoHtml(disciplina, elementoDestino) {
         const disciplinaElemento = document.createElement("li");
-        disciplinaElemento.textContent = `Código: ${disciplina.codigo} - Nome: ${disciplina.nome}`;
+        disciplinaElemento.textContent = `Código: ${disciplina.codigo}  Nome: ${disciplina.nome}`;
         elementoDestino.appendChild(disciplinaElemento);
     }
 
@@ -49,13 +49,9 @@ class DisciplinaControlador {
             disciplinaElemento.textContent = `Disciplina: ${disciplina.nome} \n Alunos: `;
              disciplina.listar().forEach(aluno => disciplinaElemento.textContent += ` \n ${aluno.nome} `)
             listaAlunosMatriculados.appendChild(disciplinaElemento);
-        });
-        
-      
-       
+        }); 
     }
     
-
     pesquisaPorCodigo(codigo){
         return this.servico.pesquisaPorCodigo(codigo);
     }
