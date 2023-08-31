@@ -4,25 +4,150 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Acadêmico - IFPB</title>
+    <title>Sistema - Acadêmico - IFPB</title>
 </head>
-
-<body> 
-            Nome:<input id="nome"><br>
-            Idade:<input id="idade" type="number"><br>
-            Matrícula:<input id="matricula"><br>
-            
-            <button onclick="alunoControlador.inserir()">Cadastrar</button>
-
-            <ol id="listaAlunos"></ol>
- 
-
+<style>
+    html {
+        background: #000000;
+        font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        padding: 20px 0;
+      
+    }
     
+
+    #container {
+        display: flex;
+        width: 90%;
+        max-width: 1240px;
+        margin: 0 auto;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-top: 200px;
+        align-items: center;
+        justify-content: center;
+       
+
+
+    }
+
+    #container:nth-child(1) {
+        color: rgb(86, 121, 235);
+    }
+    #container:nth-child(2) {
+        align-items: center;
+    }
+    .item{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        align-items: center;
+       
+    }
+    #container>.item {
+        width: 200px;
+        height: 200px;
+
+        border-style: solid;
+        border-bottom: #f5f7f8;
+        border-radius: 0px 25px 25px 0px;
+        border-color: rgb(86, 121, 235);
+        margin: 20px;
+        min-height: 100%;
+        background: white;
+        text-decoration: none;
+        color: #444;
+        background-color: rgb(11, 12, 12);
+
+    }
+    #container>.item >h3{color:  rgb(86, 121, 235);}    
+    #container>.item:hover {
+      box-shadow: 10px 5px 5px rgb(70, 70, 70) ;
+      background-color:  rgb(51, 51, 51) ;
+      color: white;
+
+    }
+    #container>.item > .buttons{
+        border-radius: 25px;    
+        color: black;
+        font-size: 15px;
+
+    }
+    #container>.item > .inputs{
+        border-radius: 15px;
+        width: 100px;
+        background-color: rgb(70, 70, 70);
+
+
+    }
+
+</style>
+
+<body>
+    
+    <section id="container">
+        <h1>Sistema - Acadêmico</h1>
+        <div class="item" id="alunoForm">
+            <h3> Aluno </h3>
+            Nome:<input class="inputs"  class="" id="nome"><br>
+            Idade:<input class="inputs"  id="idade" type="number"><br>
+            Matrícula:<input class="inputs"  id="matricula"><br>
+
+            <button  class="buttons" onclick="alunoControlador.inserir()">Cadastrar</button>
+
+            <ul id="listaAlunos"></ul>
+        </div>
+
+        <div class="item" id="disciplinaForm">
+            <h3> Disciplina </h3>
+            Codigo:<input class="inputs"  id="codigo"><br>
+            Nome:<input class="inputs"  id="nomeDisciplina"><br>
+
+            <button  class="buttons" onclick="disciplinaControlador.inserir()">Cadastrar Disciplina</button>
+
+            <ul id="listaDisciplinas"></ul>
+        </div>
+
+        <div class="item" id="inserirAlunoDisciplina">
+            <h3>Inserir aluno</h3>
+            Matricula Inserir:<input class="inputs"  id="matriculaAlunoInserir"><br>
+            Codigo Disciplina:<input class="inputs"  id="CodigoDisciplinaInserir"><br>
+            <button  class="buttons" onclick="disciplinaControlador.inserirAlunoNaDisciplina()"> Inserir Aluno</button><br>
+            <button class="buttons" onclick="disciplinaControlador.listarDisciplinas()">Mostrar alunos </button>
+            <ul id="listaAlunosMatriculados"></ul>
+        </div> 
+
+        <div class="item" id="removerAlunoNaDisciplina">
+            <h3>Remover aluno</h3>
+            Matricula Remover:<input class="inputs"  id="matriculaAlunoremover"><br>
+            Codigo Disciplina:<input class="inputs"  id="codigoDisciplinaremover"><br>
+            <button  class="buttons" onclick="disciplinaControlador.removerAlunoNaDisciplina()"> Remover Aluno</button><br>
+            
+            
+        </div> 
+
+        <div class="item" id="removerDisciplina">
+            <h3>Remover Discplina</h3>
+            Codigo Disciplina:<input class="inputs"  id="disciplinaCodigoRemover"><br>
+            <button  class="buttons" onclick="disciplinaControlador.remover()"> Remover Disciplina</button><br>
+            
+            
+        </div> 
+    </section>
+
+    <script src="modelo/disciplina.js"></script>
+    <script src="repositorio/disciplina_repositorio.js"></script>
+    <script src="servico/disciplina_service.js"></script>
+    <script src="controlador/disciplina_controlador.js"></script>
 
     <script src="modelo/aluno.js"></script>
     <script src="repositorio/aluno_repositorio.js"></script>
     <script src="servico/aluno_service.js"></script>
     <script src="controlador/aluno_controlador.js"></script>
+
+    <script src="disciplina.js"></script>
     <script src="script.js"></script>
 
 </body>
